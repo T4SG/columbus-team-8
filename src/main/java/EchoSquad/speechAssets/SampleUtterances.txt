@@ -8,9 +8,6 @@ HeyLebron sup L.B.J.
 MyDayGood My day was {goodSlotName}
 MyDayBad My day was {badSlotName}
 
-MyDay My day was {goodSlotName} {goodSlotName}
-MyDay My day was {badSlotName} {badSlotName}
-
 TellLebron tell lebron
 TellLebron tell L.B.J.
 
