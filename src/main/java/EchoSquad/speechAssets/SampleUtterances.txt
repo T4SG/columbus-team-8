@@ -13,3 +13,9 @@ MyDay My day was {badSlotName} {badSlotName}
 
 TellLebron tell lebron
 TellLebron tell L.B.J.
+
+PlaySpotify play spotify
+PlaySpotify listen to spotify
+PlaySpotify listen to L.B.J.'s playlist
+PlaySpotify listen to Lebron James playlist
+PlaySpotify listen to Lebron James music
