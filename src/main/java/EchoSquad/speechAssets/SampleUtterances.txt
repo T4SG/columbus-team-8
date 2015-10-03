@@ -20,6 +20,7 @@ HeyLebron hey L.B.J.
 HeyLebron hello L.B.J.
 HeyLebron sup L.B.J.
 
+<<<<<<< HEAD
 MyDay My day was {good}
 MyDay My day was {bad}
 MyDay Definitely the best ever
@@ -33,3 +34,7 @@ ToLebron I need some help on Math
 ToLebron Go cavs
 
 
+=======
+TellLebron My day was {good}
+TellLebron My day was {bad}
+>>>>>>> origin/master

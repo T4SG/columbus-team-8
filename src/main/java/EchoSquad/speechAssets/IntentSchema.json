@@ -8,6 +8,7 @@
       "intent": "HeyLebron",
       "slots": []
     },
+<<<<<<< HEAD
     {
       "intent": "MyDay",
       "slots": []
@@ -20,5 +21,19 @@
       "intent": "ToLebron",
       "slots": []
     }
+=======
+	{
+		"intent": "TelLebron",
+		"slots": [
+        {
+          "name": "good",
+          "type": "GOOD_LEXICON"
+        },
+        {
+          "name": "bad",
+          "type": "BAD_LEXICON"
+        }
+	}
+>>>>>>> origin/master
   ]
  }
