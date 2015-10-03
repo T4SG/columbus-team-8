@@ -4,6 +4,10 @@
       "intent": "HeyLebron",
       "slots": []
     },
+    {
+      "intent": "TellLebron",
+      "slots": []
+    }
 	{
 		"intent": "PlayLBJmusic",
 		"slots": []
