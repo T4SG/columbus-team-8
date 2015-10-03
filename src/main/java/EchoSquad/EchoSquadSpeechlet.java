@@ -9,6 +9,8 @@
  */
 package EchoSquad;
 
+import java.util.*;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.sql.*;
@@ -36,7 +38,7 @@ public class EchoSquadSpeechlet implements Speechlet {
     /**
      * Array containing space facts.
      */
-	private boolean talkedToLebron = false;
+	private int talkedToLebron = 0;
 	
     @Override
     public void onSessionStarted(final SessionStartedRequest request, final Session session)
@@ -63,13 +65,14 @@ public class EchoSquadSpeechlet implements Speechlet {
         Intent intent = request.getIntent();
         String intentName = (intent != null) ? intent.getName() : null;
 
-        if ("HeyLebron".equals(intentName) && talkedToLebron) {
+        if ("HeyLebron".equals(intentName) && (talkedToLebron == 0)) {
+			talkedToLebron = 1;
 			return getLebronResponse();
-		} else if ("MyDayGood".equals(intentName) && talkedToLebron) {
+		} else if ("MyDayGood".equals(intentName) && (talkedToLebron > 0)) {
 			return getDayResponse("good");
-		} else if ("MyDayBad".equals(intentName) && talkedToLebron) {
+		} else if ("MyDayBad".equals(intentName) && (talkedToLebron > 0)) {
 			return getDayResponse("bad");
-		} else if (("PlayLBJmusic").equals(intentName) && talkedToLebron){
+		} else if (("PlayLBJmusic").equals(intentName) && (talkedToLebron > 0)){
 			return playMusic();
 		}
 		else {
@@ -106,7 +109,7 @@ public class EchoSquadSpeechlet implements Speechlet {
 	private SpeechletResponse playMusic() {
         String speechText = "";
 		
-		String remindStudent = "It's been more than a week since you've gave us an update."
+		String remindStudent = "It's been more than a week since you've gave us an update.";
         // Create the plain text output.
         PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
         speech.setText(speechText);
@@ -131,18 +134,34 @@ public class EchoSquadSpeechlet implements Speechlet {
         // Create reprompt
         Reprompt reprompt = new Reprompt();
         reprompt.setOutputSpeech(speech);
-		
-		talkedToLebron = true;
         return SpeechletResponse.newAskResponse(speech, reprompt);
     }
     
+	
+	private String[] goodResponses = new String[]{
+		"That's really good! Keep it up.",
+		"Proud of you. Keep making progress.",
+		"You da bomb!",
+		"You're gonna do great things!",
+		"You make me proud!"
+		
+	};
+	private String[] badResponses = new String[]{
+		"Oh, I'm sorry. Don't be afraid to get help.",
+		"I'm sorry to hear that. I hope your day gets better.",
+		"Fall seven times stand up eight.",
+		"A problem is a chance for you to do your best.",
+		"Feel free to talk to a teacher you trust."
+		};
+	
     // intent is student's answer to how their day was
     private SpeechletResponse getDayResponse(String s) {
+        int dataIndex = 0;
         String speechText = ""; //This is Lebron James response.
         if (s.equals("good"))
-			speechText = "That's great";
+			speechText = goodResponses[dataIndex];
         else if (s.equals("bad"))
-			speechText = "Oh, I'm sorry";
+			speechText = badResponses[dataIndex];
 
         // Create the plain text output.
         PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
@@ -154,5 +173,6 @@ public class EchoSquadSpeechlet implements Speechlet {
 
         return SpeechletResponse.newAskResponse(speech, reprompt);
     }
+    
     
 }
