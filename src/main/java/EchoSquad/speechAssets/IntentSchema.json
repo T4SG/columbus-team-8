@@ -7,6 +7,18 @@
     {
       "intent": "HeyLebron",
       "slots": []
-    }
+    },
+	{
+		"intent": "TelLebron",
+		"slots": [
+        {
+          "name": "good",
+          "type": "GOOD_LEXICON"
+        },
+        {
+          "name": "bad",
+          "type": "BAD_LEXICON"
+        }
+	}
   ]
  }

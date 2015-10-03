@@ -19,3 +19,6 @@ HeyLebron sup lebron
 HeyLebron hey L.B.J.
 HeyLebron hello L.B.J.
 HeyLebron sup L.B.J.
+
+TellLebron My day was {good}
+TellLebron My day was {bad}
