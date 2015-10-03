@@ -53,7 +53,7 @@ public class EchoSquadSpeechlet implements Speechlet {
             throws SpeechletException {
         log.info("onLaunch requestId={}, sessionId={}", request.getRequestId(),
                 session.getSessionId());
-        return getLebronResponse();
+        return getHeyResponse();
     }
 
     @Override
@@ -67,13 +67,21 @@ public class EchoSquadSpeechlet implements Speechlet {
 
         if ("HeyLebron".equals(intentName) && (talkedToLebron == 0)) {
 			talkedToLebron = 1;
-			return getLebronResponse();
+			return getHeyResponse();
 		} else if ("MyDayGood".equals(intentName) && (talkedToLebron > 0)) {
 			return getDayResponse("good");
 		} else if ("MyDayBad".equals(intentName) && (talkedToLebron > 0)) {
 			return getDayResponse("bad");
 		} else if (("PlayLBJmusic").equals(intentName) && (talkedToLebron > 0)){
 			return playMusic();
+		} else if ("TellLebron".equals(intentName)) {
+			return getTellResponse();
+		} else if ("EventGrade".equals(intentName)) {
+			return getGradeResponse();
+		} else if ("EventHelp".equals(intentName)) {
+			return getHelpResponse();
+		} else if ("EventVol".equals(intentName)) {
+			return getVolResponse();
 		}
 		else {
             throw new SpeechletException("Invalid Intent");
@@ -124,7 +132,7 @@ public class EchoSquadSpeechlet implements Speechlet {
     /**
      * Returns a response for the HeyLebron intent.
      */
-    private SpeechletResponse getLebronResponse() {
+    private SpeechletResponse getHeyResponse() {
         String speechText = "Hey how was your day?"; //This is Lebron James response.
 
         // Create the plain text output.
@@ -174,5 +182,55 @@ public class EchoSquadSpeechlet implements Speechlet {
         return SpeechletResponse.newAskResponse(speech, reprompt);
     }
     
+    private SpeechletResponse getTellResponse() {
+        String speechText = "What do you want to tell me?"; //This is Lebron James response.
+
+        // Create the plain text output.
+        PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+        speech.setText(speechText);
+
+        // Create reprompt
+        Reprompt reprompt = new Reprompt();
+        reprompt.setOutputSpeech(speech);
+        return SpeechletResponse.newAskResponse(speech, reprompt);
+    }
     
+    private SpeechletResponse getGradeResponse() {
+        String speechText = "Wow, that's a fantastic grade!"; //This is Lebron James response.
+
+        // Create the plain text output.
+        PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+        speech.setText(speechText);
+
+        // Create reprompt
+        Reprompt reprompt = new Reprompt();
+        reprompt.setOutputSpeech(speech);
+        return SpeechletResponse.newAskResponse(speech, reprompt);
+    }
+    
+    private SpeechletResponse getHelpResponse() {
+        String speechText = "There are people that care about you and want to help."; //This is Lebron James response.
+
+        // Create the plain text output.
+        PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+        speech.setText(speechText);
+
+        // Create reprompt
+        Reprompt reprompt = new Reprompt();
+        reprompt.setOutputSpeech(speech);
+        return SpeechletResponse.newAskResponse(speech, reprompt);
+    }
+    
+    private SpeechletResponse getVolResponse() {
+        String speechText = "Giving back is essential for our community"; //This is Lebron James response.
+
+        // Create the plain text output.
+        PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+        speech.setText(speechText);
+
+        // Create reprompt
+        Reprompt reprompt = new Reprompt();
+        reprompt.setOutputSpeech(speech);
+        return SpeechletResponse.newAskResponse(speech, reprompt);
+    }
 }
