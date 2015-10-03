@@ -3,8 +3,8 @@ public class StudentDetection {
 	{
 		//Useful Student Data Metrics to check if they're performing well or not
 		
-		/*  0 - Current Semester GPA
-			1 - Days Missed Per Month
+		/*  0 - GPA
+			1 - Attendance
 			2 - Days Late Per Month
 			3 - Number of Detentions
 			
@@ -23,10 +23,21 @@ public class StudentDetection {
 			
 			Attendance benchmark - 
 				- Students with more than 10% are very at risk for not graduating
+			
+			Days Late Per Month -
+				- Couldn't find data (but we'd use the data from the Lebron James Family Fund...)
+				Good estimate is 5
 				
+			Number of Detentions - 
+				- Couldn't find data (but we'd use the data from the Lebron James Family Fund...)
+				Good estimate is 2
+			*/
 			
-			
-		*/
-		return true;
+			if (studentData[0] < 2.0 || studentData[1] > .10 || studentData[2] > 5 || studentData[3] >= 2)
+			{
+				//This student is at risk
+				return true
+			}
+		return false;
 	}
 }
