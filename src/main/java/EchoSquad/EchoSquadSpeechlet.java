@@ -11,6 +11,7 @@ package EchoSquad;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.sql.*;
 
 import com.amazon.speech.slu.Intent;
 import com.amazon.speech.speechlet.IntentRequest;
@@ -35,6 +36,7 @@ public class EchoSquadSpeechlet implements Speechlet {
     /**
      * Array containing space facts.
      */
+	private boolean talkedToLebron = false;
     private static final String[] SPACE_FACTS = new String[] {
             "A year on Mercury is just 88 days long.",
             "Despite being farther from the Sun, Venus experiences higher temperatures "
@@ -69,7 +71,7 @@ public class EchoSquadSpeechlet implements Speechlet {
             throws SpeechletException {
         log.info("onLaunch requestId={}, sessionId={}", request.getRequestId(),
                 session.getSessionId());
-        return getNewFactResponse();
+        return getEchoTurnedOn();
     }
 
     @Override
@@ -81,14 +83,11 @@ public class EchoSquadSpeechlet implements Speechlet {
         Intent intent = request.getIntent();
         String intentName = (intent != null) ? intent.getName() : null;
 
-        if ("GetNewFactIntent".equals(intentName)) {
-            return getNewFactResponse();
-		}
-        else if ("HeyLebron".equals(intentName)) {
+        if ("HeyLebron".equals(intentName) && talkedToLebron) {
 			return getLebronResponse();
-		} else if ("MyDayGood".equals(intentName)) {
+		} else if ("MyDayGood".equals(intentName) && talkedToLebron) {
 			return getDayResponse("good");
-		} else if ("MyDayBad".equals(intentName)) {
+		} else if ("MyDayBad".equals(intentName) && talkedToLebron) {
 			return getDayResponse("bad");
 		}
 		else {
@@ -104,36 +103,12 @@ public class EchoSquadSpeechlet implements Speechlet {
         // any cleanup logic goes here
     }
 
-    /**
-     * Gets a random new fact from the list and returns to the user.
-     */
-    private SpeechletResponse getNewFactResponse() {
-        // Get a random space fact from the space facts list
-        int factIndex = (int) Math.floor(Math.random() * SPACE_FACTS.length);
-        String fact = SPACE_FACTS[factIndex];
-
-        // Create speech output
-        String speechText = "Here's your space fact: " + fact;
-
-        // Create the Simple card content.
-        SimpleCard card = new SimpleCard();
-        card.setTitle("EchoSquad");
-        card.setContent(speechText);
-
-        // Create the plain text output.
-        PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
-        speech.setText(speechText);
-
-        return SpeechletResponse.newTellResponse(speech, card);
-    }
 
     /**
      * Returns a response for the help intent.
      */
     private SpeechletResponse getHelpResponse() {
-        String speechText =
-                "You can ask Space Geek tell me a space fact, or, you can say exit. What can I "
-                        + "help you with?";
+        String speechText = "";
 
         // Create the plain text output.
         PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
@@ -159,7 +134,8 @@ public class EchoSquadSpeechlet implements Speechlet {
         // Create reprompt
         Reprompt reprompt = new Reprompt();
         reprompt.setOutputSpeech(speech);
-
+		
+		talkedToLebron = true;
         return SpeechletResponse.newAskResponse(speech, reprompt);
     }
     
@@ -180,6 +156,11 @@ public class EchoSquadSpeechlet implements Speechlet {
         reprompt.setOutputSpeech(speech);
 
         return SpeechletResponse.newAskResponse(speech, reprompt);
+    }
+	
+    // Echo Turned On
+    private SpeechletResponse getEchoTurnedOn() {
+		return null;
     }
     
     
