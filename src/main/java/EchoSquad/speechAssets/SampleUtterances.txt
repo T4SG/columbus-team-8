@@ -13,6 +13,6 @@ MyDayBad My day was {badSlotName}
 TellLebron tell lebron 
 TellLebron tell L.B.J.
 
-EventGrade I got a {grade} today!
-EventHelp I need help!
+EventGrade I got a {grade} today
+EventHelp I need help
 EventVol Volunteering at the {place} was so rewarding
