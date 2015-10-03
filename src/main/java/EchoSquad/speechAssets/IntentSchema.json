@@ -34,7 +34,7 @@
     "slots": [
     {
       "name": "grade",
-      "type": "Amazon.String"
+      "type": "GRADE_LIST"
         }
       ]
     },
@@ -45,7 +45,7 @@
       "slots": [
       {
         "name": "place",
-        "type": "Amazon.String"
+        "type": "PLACE_LIST"
       }
       ]
     }
