@@ -165,7 +165,6 @@ public class EchoSquadSpeechlet implements Speechlet {
     
     // intent is student's answer to how their day was
     private SpeechletResponse getDayResponse(String s) {
-
         String speechText = ""; //This is Lebron James response.
         if (s.equals("good"))
 			speechText = "That's great";
