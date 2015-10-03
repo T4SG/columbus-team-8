@@ -51,7 +51,7 @@ public class EchoSquadSpeechlet implements Speechlet {
             throws SpeechletException {
         log.info("onLaunch requestId={}, sessionId={}", request.getRequestId(),
                 session.getSessionId());
-        return getEchoTurnedOn();
+        return getLebronResponse();
     }
 
     @Override
@@ -154,11 +154,5 @@ public class EchoSquadSpeechlet implements Speechlet {
 
         return SpeechletResponse.newAskResponse(speech, reprompt);
     }
-	
-    // Echo Turned On
-    private SpeechletResponse getEchoTurnedOn() {
-		return null;
-    }
-    
     
 }
