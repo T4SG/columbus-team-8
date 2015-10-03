@@ -6,7 +6,7 @@
     },
 	{
 		"intent": "PlayLBJmusic",
-		"slots:" []
+		"slots": []
 	},
 	{
 		"intent": "MyDayGood",
