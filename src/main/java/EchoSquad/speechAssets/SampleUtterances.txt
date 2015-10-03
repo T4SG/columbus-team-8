@@ -20,5 +20,8 @@ HeyLebron hey L.B.J.
 HeyLebron hello L.B.J.
 HeyLebron sup L.B.J.
 
-TellLebron My day was {good}
-TellLebron My day was {bad}
+MyDay My day was {goodSlotName}
+MyDay My day was {badSlotName}
+
+MyDay My day was {goodSlotName} {goodSlotName}
+MyDay My day was {badSlotName} {badSlotName}

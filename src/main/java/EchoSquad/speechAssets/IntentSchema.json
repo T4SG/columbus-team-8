@@ -1,24 +1,26 @@
 {
   "intents": [
     {
-      "intent": "GetNewFactIntent",
-      "slots": []
-    },
-    {
       "intent": "HeyLebron",
       "slots": []
     },
 	{
-		"intent": "TelLebron",
+		"intent": "MyDayGood",
 		"slots": [
         {
-          "name": "good",
+          "name": "goodSlotName",
           "type": "GOOD_LEXICON"
-        },
-        {
-          "name": "bad",
+        }
+		]
+	},
+        
+		{"intent": "MyDayBad",
+		"slots": [
+		{
+          "name": "badSlotName",
           "type": "BAD_LEXICON"
         }
-	}
-  ]
- }
+  		]
+		}
+    ]
+}

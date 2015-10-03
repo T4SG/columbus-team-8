@@ -86,6 +86,10 @@ public class EchoSquadSpeechlet implements Speechlet {
 		}
         else if ("HeyLebron".equals(intentName)) {
 			return getLebronResponse();
+		} else if ("MyDayGood".equals(intentName)) {
+			return getDayResponse("good");
+		} else if ("MyDayBad".equals(intentName)) {
+			return getDayResponse("bad");
 		}
 		else {
             throw new SpeechletException("Invalid Intent");
@@ -158,4 +162,26 @@ public class EchoSquadSpeechlet implements Speechlet {
 
         return SpeechletResponse.newAskResponse(speech, reprompt);
     }
+    
+    // intent is student's answer to how their day was
+    private SpeechletResponse getDayResponse(String s) {
+
+        String speechText = ""; //This is Lebron James response.
+        if (s.equals("good"))
+			speechText = "That's great";
+        else if (s.equals("bad"))
+			speechText = "Oh, I'm sorry";
+
+        // Create the plain text output.
+        PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+        speech.setText(speechText);
+
+        // Create reprompt
+        Reprompt reprompt = new Reprompt();
+        reprompt.setOutputSpeech(speech);
+
+        return SpeechletResponse.newAskResponse(speech, reprompt);
+    }
+    
+    
 }

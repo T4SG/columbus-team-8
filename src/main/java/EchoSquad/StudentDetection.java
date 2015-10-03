@@ -33,10 +33,10 @@ public class StudentDetection {
 				Good estimate is 2
 			*/
 			
-			if (studentData[0] < 2.0 || studentData[1] > .10 || studentData[2] > 5 || studentData[3] >= 2)
+			if (Integer.parseInt(studentData[0]) < 2.0 || Integer.parseInt(studentData[1]) > .10 || Integer.parseInt(studentData[2]) > 5 || Integer.parseInt(studentData[3]) >= 2)
 			{
 				//This student is at risk
-				return true
+				return true;
 			}
 		return false;
 	}
