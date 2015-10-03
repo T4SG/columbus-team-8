@@ -7,7 +7,7 @@
     {
       "intent": "TellLebron",
       "slots": []
-    }
+    },
 	{
 		"intent": "PlayLBJmusic",
 		"slots": []
