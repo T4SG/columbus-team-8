@@ -8,27 +8,47 @@
       "intent": "TellLebron",
       "slots": []
     },
-	{
-		"intent": "PlayLBJmusic",
-		"slots": []
-	},
-	{
-		"intent": "MyDayGood",
-		"slots": [
+  {
+    "intent": "PlayLBJmusic",
+    "slots": []
+  },
+  {
+    "intent": "MyDayGood",
+    "slots": [
         {
           "name": "goodSlotName",
           "type": "GOOD_LEXICON"
         }
-		]
-	},
+    ]
+  },
         
-		{"intent": "MyDayBad",
-		"slots": [
-		{
+    {"intent": "MyDayBad",
+    "slots": [
+    {
           "name": "badSlotName",
           "type": "BAD_LEXICON"
         }
-  		]
-		}
+      ]
+    },
+    {"intent": "EventGrade",
+    "slots": [
+    {
+      "name": "grade",
+      "type": "Amazon.String"
+        }
+      ]
+    },
+    {"intent": "EventHelp",
+      "slots": []
+    },
+    {"intent": "EventVol",
+      "slots": [
+      {
+        "name": "place",
+        "type": "Amazon.String"
+      }
+      ]
+    }
+
     ]
 }

@@ -1,12 +1,18 @@
 HeyLebron hey lebron
 HeyLebron hello lebron
 HeyLebron sup lebron
+HeyLebron what's up lebron
 HeyLebron hey L.B.J.
 HeyLebron hello L.B.J.
 HeyLebron sup L.B.J.
+HeyLebron what's up L.B.J.
 
 MyDayGood My day was {goodSlotName}
 MyDayBad My day was {badSlotName}
 
-TellLebron tell lebron
+TellLebron tell lebron 
 TellLebron tell L.B.J.
+
+EventGrade I got a {grade} today!
+EventHelp I need help!
+EventVol Volunteering at the {place} was so rewarding
