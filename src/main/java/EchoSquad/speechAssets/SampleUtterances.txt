@@ -19,3 +19,17 @@ HeyLebron sup lebron
 HeyLebron hey L.B.J.
 HeyLebron hello L.B.J.
 HeyLebron sup L.B.J.
+
+MyDay My day was {good}
+MyDay My day was {bad}
+MyDay Definitely the best ever
+
+TellLebron tell lebron
+TellLebron tell L.B.J.
+
+ToLebron I got elected president of chess club
+ToLebron I got an A on my history test
+ToLebron I need some help on Math
+ToLebron Go cavs
+
+

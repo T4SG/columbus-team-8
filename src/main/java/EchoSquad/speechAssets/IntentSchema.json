@@ -7,6 +7,18 @@
     {
       "intent": "HeyLebron",
       "slots": []
+    },
+    {
+      "intent": "MyDay",
+      "slots": []
+    },
+    {
+      "intent": "TellLebron",
+      "slots": []
+    },
+        {
+      "intent": "ToLebron",
+      "slots": []
     }
   ]
  }
