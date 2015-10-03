@@ -10,3 +10,9 @@ MyDayBad My day was {badSlotName}
 
 MyDay My day was {goodSlotName} {goodSlotName}
 MyDay My day was {badSlotName} {badSlotName}
+
+PlaySpotify play spotify
+PlaySpotify listen to spotify
+PlaySpotify listen to L.B.J.'s playlist
+PlaySpotify listen to Lebron James playlist
+PlaySpotify listen to Lebron James music

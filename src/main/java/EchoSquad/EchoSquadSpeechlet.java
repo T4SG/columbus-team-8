@@ -37,26 +37,6 @@ public class EchoSquadSpeechlet implements Speechlet {
      * Array containing space facts.
      */
 	private boolean talkedToLebron = false;
-    private static final String[] SPACE_FACTS = new String[] {
-            "A year on Mercury is just 88 days long.",
-            "Despite being farther from the Sun, Venus experiences higher temperatures "
-                    + "than Mercury.",
-            "Venus rotates counter-clockwise, possibly because of a collision in the "
-                    + "past with an asteroid.",
-            "On Mars, the Sun appears about half the size as it does on Earth.",
-            "Earth is the only planet not named after a god.",
-            "Jupiter has the shortest day of all the planets.",
-            "The Milky Way galaxy will collide with the Andromeda Galaxy in about 5 "
-                    + "billion years.",
-            "The Sun contains 99.86% of the mass in the Solar System.",
-            "The Sun is an almost perfect sphere.",
-            "A total solar eclipse can happen once every 1 to 2 years. This makes them "
-                    + "a rare event.",
-            "Saturn radiates two and a half times more energy into space than it "
-                    + "receives from the sun.",
-            "The temperature inside the Sun can reach 15 million degrees Celsius.",
-            "The Moon is moving approximately 3.8 cm away from our planet every year."
-    };
 	
     @Override
     public void onSessionStarted(final SessionStartedRequest request, final Session session)
@@ -89,6 +69,8 @@ public class EchoSquadSpeechlet implements Speechlet {
 			return getDayResponse("good");
 		} else if ("MyDayBad".equals(intentName) && talkedToLebron) {
 			return getDayResponse("bad");
+		} else if (("PlayLBJmusic").equals(intentName) && talkedToLebron){
+			return playMusic();
 		}
 		else {
             throw new SpeechletException("Invalid Intent");
@@ -110,6 +92,21 @@ public class EchoSquadSpeechlet implements Speechlet {
     private SpeechletResponse getHelpResponse() {
         String speechText = "";
 
+        // Create the plain text output.
+        PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+        speech.setText(speechText);
+
+        // Create reprompt
+        Reprompt reprompt = new Reprompt();
+        reprompt.setOutputSpeech(speech);
+
+        return SpeechletResponse.newAskResponse(speech, reprompt);
+    }
+	
+	private SpeechletResponse playMusic() {
+        String speechText = "";
+		
+		String remindStudent = "It's been more than a week since you've gave us an update."
         // Create the plain text output.
         PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
         speech.setText(speechText);
