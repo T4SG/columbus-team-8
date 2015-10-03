@@ -10,7 +10,22 @@ public class StudentDetection {
 			
 			(in real life we'd look at the statistics from the LBFF data
 			and perform predictive analytics to see which features correlate
-			the most with a student graduating highschool or not.)
+			the most with a student graduating highschool or not. Using Machine Learning
+			methods like Linear Regression, Anomaly Detection (DBScan), SVMs, Neural Networks
+			)
+			
+			Research we used!
+			http://www.betterhighschools.org/pubs/ews_guide.asp
+			
+			For now we're just going to use benchmarks from research.
+			GPA benchmark - 
+				- Students with less than a 2.0 are very at risk for not graduating
+			
+			Attendance benchmark - 
+				- Students with more than 10% are very at risk for not graduating
+				
+			
+			
 		*/
 		return true;
 	}
